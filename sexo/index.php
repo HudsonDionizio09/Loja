@@ -14,7 +14,8 @@ if(isset($_POST['editar']) && $_POST['editar'] == 'editar') {
 }
 
 if(isset($_POST['remover']) && $_POST['remover'] == 'remover') {
-    $sexo = $dao->findbydId($_POST['id']);
+    $dao->remove($_POST['id']);
+    header('location: index.php');
 }
 
 $sexos = $dao->findAll();
