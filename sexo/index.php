@@ -29,8 +29,25 @@ $sexos = $dao->findAll();
     <title>Sexos</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/all.css">
+    <link rel="icon" href="../assets/img/usuario.png">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"><!-- Barra de navegação-->
+  <a class="navbar-brand" href="#">Produtos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Marca<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sexo</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     <div class="container">
         <div class="row" style="margin-top: 50px;">
             <div class="col-6"><!--form-->
@@ -56,7 +73,7 @@ $sexos = $dao->findAll();
                 <fieldset>
                     <legend>Lista de Sexo</legend>
                     <table class="table table-striped table-hover">
-                        <thead>
+                        <thead class="thead-dark" >
                             <tr>
                                 <th>#</th>
                                 <th>Sexo</th>
@@ -78,7 +95,7 @@ $sexos = $dao->findAll();
                                     </td>
                                     <td>
                                         <form action="index.php" method="post">
-                                            <input type="hidden" name="id" valeu="<?=$sexo->getId();?>">
+                                            <input type="hidden" name="id" value="<?=$sexo->getId();?>">
                                             <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                         </form>  
                                     </td>
