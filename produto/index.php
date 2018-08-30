@@ -3,9 +3,14 @@ require_once(__DIR__ . "/../classes/modelo/Marca.class.php");
 require_once(__DIR__ . "/../classes/dao/MarcaDAO.class.php");
 require_once(__DIR__ . "/../classes/modelo/Produto.class.php");
 require_once(__DIR__ . "/../classes/dao/ProdutoDAO.class.php");
+
+include(__DIR__ . "/../logado.php");
+
+$home = "/loja/produto/";
 $produto = new Produto();
 $marcaDao = new MarcaDAO();
 $produtoDao = new ProdutoDAO();
+
 if (isset($_POST['salvar']) && $_POST['salvar'] == 'salvar') {
     $produto->setNome($_POST['produto']);
     $produto->setPreco($_POST['preco']);
@@ -38,24 +43,25 @@ $produtos = $produtoDao->findAll();
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="icon" href="../assets/img/carrinho-de-compra.png">
-    <a href="http://localhost:8080/loja/marca/"></a>
-    <a href="http://localhost:8080/loja/sexo/"></a>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light"><!-- Barra de navegação-->
-  <a class="navbar-brand" href="#">Produtos</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><!-- Barra de navegação-->
+  <a class="navbar-brand" href="http://localhost:8080/loja/produto">Produtos</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Marca<span class="sr-only"></span></a>
+      <li class="nav-brand active">
+        <a class="nav-link" href="http://localhost:8080/loja/marca">Marca<span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sexo</a>
+      <li class="nav-brand active">
+        <a class="nav-link" href="http://localhost:8080/loja/sexo">Sexo</a>
       </li>
     </ul>
+    <form class="form-inline">
+    <a class="btn btn-warning my-2 my-sm-0" type="submit" href="http://localhost:8080/loja/logout.php"><i class="fas fa-sign-out-alt"></i>  Sair </a>
+    </form>
   </div>
 </nav>
     <div class="container">
@@ -72,7 +78,7 @@ $produtos = $produtoDao->findAll();
                         <div class="form-group"><!-- select marca -->
                             <label for="marca">Marca</label>
                             <select class="form-control" name="marca" id="marca">
-                                <option value="0" disabled selected>--SELECIONE--</option>
+                                <option value="0" disabled selected> Selecione </option>
                                 <?php foreach($marcas as $marca): ?>
                                     <?php
                                         $selected = "";
@@ -101,8 +107,8 @@ $produtos = $produtoDao->findAll();
             <div class="col-6"><!-- Tabela -->
                 <fieldset>
                     <legend>Lista de Produtos</legend>
-                    <table class="table table-striped table-hover">
-                        <thead  class="thead-dark">
+                    <table class="table table-striped table-dark">
+                        <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Produtos</th>
@@ -137,6 +143,7 @@ $produtos = $produtoDao->findAll();
                 </fieldset>
             </div>
         </div>
-    </div> 
+    </div>
+    <script src="../assets/js/produto.js"></script> 
 </body>
 </html>

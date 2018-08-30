@@ -32,19 +32,22 @@ $sexos = $dao->findAll();
     <link rel="icon" href="../assets/img/usuario.png">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light"><!-- Barra de navegação-->
-  <a class="navbar-brand" href="#">Produtos</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><!-- Barra de navegação-->
+  <a class="navbar-brand" href="http://localhost:8080/loja/produto">Produtos</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Marca<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="http://localhost:8080/loja/marca">Marca<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sexo</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:8080/loja/sexo">Sexo</a>
       </li>
+    <form class="form-inline my-2 my-lg-0">
+        <a class="btn btn-warning my-2 my-sm-0" type="submit" href="http://localhost:8080/loja/logout.php"><i class="fas fa-sign-out-alt"></i>  Sair </a>
+    </form>
     </ul>
   </div>
 </nav>
@@ -64,7 +67,7 @@ $sexos = $dao->findAll();
                             <input type="text"  class="form-control" name="sigla" id="sigla" maxlength="1" required value="<?=$sexo->getNome();?>">
                         </div>
                         <div class="form-group">
-                                 <button type="submit" class="btn btn-primary" name="salvar" value="salvar">Salvar</button>
+                                 <button type="submit" class="btn btn-primary" name="salvar" value="salvar"><i class="fas fa-save"></i> Salvar </button>
                         </div>
                     </form>
                 </fieldset>
@@ -72,8 +75,8 @@ $sexos = $dao->findAll();
             <div class="col-6"><!--table -->
                 <fieldset>
                     <legend>Lista de Sexo</legend>
-                    <table class="table table-striped table-hover">
-                        <thead class="thead-dark" >
+                    <table class="table table-striped table-dark">
+                        <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Sexo</th>

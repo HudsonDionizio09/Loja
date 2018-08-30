@@ -31,6 +31,25 @@ $marcas = $dao->findAll();
     <link rel="icon" href="../assets/img/marcas.png">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><!-- Barra de navegação-->
+  <a class="navbar-brand" href="http://localhost:8080/loja/produto">Produtos</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-brand active">
+        <a class="nav-link" href="http://localhost:8080/loja/marca">Marca<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-brand active">
+        <a class="nav-link" href="http://localhost:8080/loja/sexo">Sexo</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+        <a class="btn btn-warning my-2 my-sm-0" type="submit" href="http://localhost:8080/loja/logout.php"><i class="fas fa-sign-out-alt"></i>  Sair </a>
+    </form>
+  </div>
+</nav>
     <div class="container">
         <div class="row" style="margin-top: 50px;">
             <div class="col-6"><!-- form -->
@@ -53,8 +72,8 @@ $marcas = $dao->findAll();
             <div class="col-6"><!-- table -->
                 <fieldset>
                     <legend>Lista de Marcas</legend>
-                    <table class="table table-striped table-hover">
-                        <thead class="thead-dark" >
+                    <table class="table table-striped table-dark">
+                        <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Marcas</th>

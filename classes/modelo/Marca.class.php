@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class Marca {
@@ -17,5 +17,3 @@ class Marca {
         $this->nome = strtoupper($nome);
     }
 }
-
-
